@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<h1>Message Center</h1>
+{% endblock %}
+
+{% block main %}
+<h2>Message Center Description</h2>
+<div>
+    <p class="p_pad">
+        This page will contain messages from users accessing the webpage
+    </p>
+</div>
+
+<div>
+    <form action="/contacts" method="POST">
+        <input type="text" name="Message" id="task-messsage" class="text_black">
+        <input type="submit" value="Send" class="text_black">
+    </form>
+    <button onclick="messageHider()" class="text_black">Show/Hide Messages</button>
+    <div id="message-box">
+        {% for task in message_list %}
+        <li> {{ task }}</li>
+        {% endfor%}
+    </div>
+</div>
+{% endblock %}
